@@ -13,9 +13,10 @@ import { getAllVideo } from "./actions/video";
 import { getAlllikedVideo } from "./actions/likedVideo";
 import { getAllwatchLater } from "./actions/watchLater";
 import { getAllHistory } from "./actions/History";
+
 function App() {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchAllChanel());
     dispatch(getAllVideo());
@@ -42,7 +43,7 @@ function App() {
   const [EditCreateChanelBtn, setEditCreateChanelBtn] = useState(false);
   return (
     <Router>
-      {vidUploadPage && <VideoUpload  setVidUploadPage={setVidUploadPage}/>}
+      {vidUploadPage && <VideoUpload setVidUploadPage={setVidUploadPage} />}
       {EditCreateChanelBtn && (
         <CreateEditChanel setEditCreateChanelBtn={setEditCreateChanelBtn} />
       )}
@@ -56,7 +57,10 @@ function App() {
         toggleDrawerSidebar={toggleDrawerSidebar}
       />
 
-      <AllRoutes setVidUploadPage={setVidUploadPage} setEditCreateChanelBtn={setEditCreateChanelBtn} />
+      <AllRoutes
+        setVidUploadPage={setVidUploadPage}
+        setEditCreateChanelBtn={setEditCreateChanelBtn}
+      />
     </Router>
   );
 }

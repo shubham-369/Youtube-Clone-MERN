@@ -5,14 +5,15 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { setCurrentUser } from "../../actions/currentUser";
 import "./Auth.css";
-function Auth({ User, setAuthBtn, setEditCreateChanelBtn }) {
 
+function Auth({ User, setAuthBtn, setEditCreateChanelBtn }) {
+  
   const dispatch = useDispatch();
   const onLogOutSuccess = () => {
     dispatch(setCurrentUser(null));
     alert("Log Out SuccessFully");
   };
-  
+
   return (
     <div className="Auth_container" onClick={() => setAuthBtn(false)}>
       <div className="Auth_container2">

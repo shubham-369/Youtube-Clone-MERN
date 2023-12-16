@@ -3,38 +3,46 @@ import "./SearchBar.css";
 import { BsMicFill } from "react-icons/bs";
 import { FaSearch } from "react-icons/fa";
 import SearchList from "./SearchList";
-import {useState} from 'react'
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 function SearchBar() {
   const [searchQuery, setSearchQuery] = useState("");
-const [seachListA, setSeachList] = useState(false)
-const TitleArray = useSelector(s=>s?.videoReducer)
-?.data?.filter(q=> q?.videoTitle.toUpperCase().includes(searchQuery?.toUpperCase())).map(m=>m?.videoTitle)
-// console.log(TitleArray)
-// const TitleArray=["video1","Video2","Animation video","Movies"].filter(q=>q.toUpperCase().includes(searchQuery.toUpperCase()));
- return (
+  const [searchListA, setSearchList] = useState(false);
+
+  const TitleArray = useSelector((s) => s?.videoReducer)
+    ?.data?.filter((q) =>
+      q?.videoTitle.toUpperCase().includes(searchQuery?.toUpperCase())
+    )
+    .map((m) => m?.videoTitle);
+
+  return (
     <>
       <div className="SearchBar_Container">
         <div className="SearchBar_Container2">
           <div className="search_div">
-            <input type="text" className="iBox_SearchBar" placeholder="Search" 
-              onChange={e=>setSearchQuery(e.target.value)}
+            <input
+              type="text"
+              className="iBox_SearchBar"
+              placeholder="Search"
+              onChange={(e) => setSearchQuery(e.target.value)}
               value={searchQuery}
-              onClick={e=>setSeachList(true)}
+              onClick={() => setSearchList(true)}
             />
             <Link to={`/seacrh/${searchQuery}`}>
-              <FaSearch className="searchIcon_SearchBar" 
-              onClick={e=>setSeachList(false)}
-            />
+              <FaSearch
+                className="searchIcon_SearchBar"
+                onClick={() => setSearchList(false)}
+              />
             </Link>
             <BsMicFill className="Mic_SearchBar" />
-            {searchQuery&& seachListA &&
+            {searchQuery && searchListA && (
               <SearchList
-              setSearchQuery={setSearchQuery}
-              TitleArray={TitleArray}
+                setSearchQuery={setSearchQuery}
+                TitleArray={TitleArray}
               />
-            }
+            )}
           </div>
         </div>
       </div>
@@ -42,4 +50,4 @@ const TitleArray = useSelector(s=>s?.videoReducer)
   );
 }
 
-export default SearchBar;
+export default SearchBar; 

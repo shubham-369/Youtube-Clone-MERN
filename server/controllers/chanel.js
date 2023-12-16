@@ -4,10 +4,7 @@ import users from "../models/auth.js";
 export const updateChanelData = async (req, res) => {
   const { id: _id } = req.params;
   const { name, desc } = req.body;
-
-  if (!mongoose.Types.ObjectId.isValid(_id)) {
-    return res.status(404).send("Chanel Unavailable..");
-  }
+c
   try {
     const updateData = await users.findByIdAndUpdate(
       _id,
@@ -31,16 +28,16 @@ export const getAllChanels = async (req, res) => {
     const allChanels = await users.find();
 
     const allChanelDetails = [];
-    allChanels.forEach((chanel) => {
+    allChanels.forEach((channel) => {
       allChanelDetails.push({
-        _id: chanel._id,
-        name: chanel.name,
-        email: chanel.email,
-        desc: chanel.desc,
-      });  
+        _id: channel._id,
+        name: channel.name,
+        email: channel.email,
+        desc: channel.desc,
+      });
     });
     res.status(200).json(allChanelDetails);
-} catch (error) {
-  res.status(404).json({message: error.message});
-}
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
 };
