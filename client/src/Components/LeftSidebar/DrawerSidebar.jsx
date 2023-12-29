@@ -1,6 +1,5 @@
 import React from "react";
 import "./LeftSidebar.css";
-
 import { AiFillPlaySquare, AiOutlineHome, AiFillLike } from "react-icons/ai";
 import {
   MdOutlineExplore,
@@ -9,16 +8,15 @@ import {
   MdSubscriptions,
 } from "react-icons/md";
 import { FaHistory } from "react-icons/fa";
-
 import shorts from "./shorts.png";
 import { NavLink } from "react-router-dom";
 
-function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
+function DrawerSidebar({ toggleDrawer, toggleDrawerSidebar }) {
   return (
     <div className="container_DrawaerLeftSidebar" style={toggleDrawerSidebar}>
       <div className="container2_DrawaerLeftSidebar">
         <div className="Drawer_leftsidebar">
-          <NavLink to={'/'} className="icon_sidebar_div">
+          <NavLink to={"/"} className="icon_sidebar_div">
             <p>
               <AiOutlineHome
                 size={22}
@@ -61,7 +59,7 @@ function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
           </div>
         </div>
         <div className="libraryBtn_Drawerleftsidebar">
-          <NavLink to={'/library'} className="icon_sidebar_div">
+          <NavLink to={"/library"} className="icon_sidebar_div">
             <p>
               <MdOutlineVideoLibrary
                 size={22}
@@ -71,7 +69,7 @@ function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
               <div className="text_sidebar_icon">Library</div>
             </p>
           </NavLink>
-          <NavLink to={'/history'} className="icon_sidebar_div">
+          <NavLink to={"/history"} className="icon_sidebar_div">
             <p>
               <FaHistory
                 size={22}
@@ -81,7 +79,7 @@ function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
               <div className="text_sidebar_icon">History</div>
             </p>
           </NavLink>
-          <NavLink to={'/yourvideos'} className="icon_sidebar_div">
+          <NavLink to={"/yourvideos"} className="icon_sidebar_div">
             <p>
               <AiFillPlaySquare
                 size={22}
@@ -91,7 +89,7 @@ function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
               <div className="text_sidebar_icon">Your Videos</div>
             </p>
           </NavLink>
-          <NavLink to={'/watchlater'} className="icon_sidebar_div">
+          <NavLink to={"/watchlater"} className="icon_sidebar_div">
             <p>
               <MdOutlineWatchLater
                 size={22}
@@ -101,7 +99,7 @@ function DrawerSidebar({ toggleDrawer,toggleDrawerSidebar }) {
               <div className="text_sidebar_icon">Watch Later</div>
             </p>
           </NavLink>
-          <NavLink to={'/likedvideo'} className="icon_sidebar_div">
+          <NavLink to={"/likedvideo"} className="icon_sidebar_div">
             <p>
               <AiFillLike
                 size={22}

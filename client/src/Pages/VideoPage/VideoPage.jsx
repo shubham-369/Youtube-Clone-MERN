@@ -3,22 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import Comments from "../../Components/Comments/Comments";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
-// import vid from "../../Components/Video/vid.mp4";
 import LikeWatchLaterSaveBtns from "./LikeWatchLaterSaveBtns";
 import "./VideoPage.css";
 import { addToHistory } from "../../actions/History";
 import { viewVideo } from "../../actions/video";
+
 function VideoPage() {
   const { vid } = useParams();
-  // console.log(vid)
-
-  // const chanels = useSelector((state) => state?.chanelReducers);
-
-  // console.log(Cid)
-  // const currentChanel = chanels.filter((c) => c._id === vid)[0];
 
   const vids = useSelector((state) => state.videoReducer);
-  // console.log(vids)
   const vv = vids?.data.filter((q) => q._id === vid)[0];
   const dispatch = useDispatch();
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
@@ -31,11 +24,13 @@ function VideoPage() {
       })
     );
   };
-  const handleViews=()=>{
-    dispatch( viewVideo({
-      id:vid
-    }))
-  }
+  const handleViews = () => {
+    dispatch(
+      viewVideo({
+        id: vid,
+      })
+    );
+  };
   useEffect(() => {
     if (CurrentUser) {
       handleHistory();
@@ -48,11 +43,11 @@ function VideoPage() {
         <div className="container2_videoPage">
           <div className="video_display_screen_videoPage">
             <video
-              // src={`http://localhost:5500/${vv?.filePath}`}
-              src={`https://youtubeclone5031.herokuapp.com/${vv?.filePath}`}
+              // src={`https://youtubeclone5031.herokuapp.com/${vv?.filePath}`}
+              src={`${process.env.REACT_APP_NETLIFY_LINK}${vv?.filePath}`}
               className={"video_ShowVideo_videoPage"}
               controls
-              // autoPlay
+              autoPlay
             ></video>
             <div className="video_details_videoPage">
               <div className="video_btns_title_VideoPage_cont">
@@ -78,7 +73,7 @@ function VideoPage() {
                 <h2>
                   <u>Coments</u>
                 </h2>
-                <Comments  videoId={vv._id}/>
+                <Comments videoId={vv._id} />
               </div>
             </div>
           </div>

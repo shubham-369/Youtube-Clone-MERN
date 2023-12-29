@@ -30,8 +30,8 @@ function LikeWatchLaterSaveBtns({ vv, vid }) {
   const [LikeBtn, setLikeBtn] = useState(false);
 
   const likedVideoList = useSelector((state) => state.likedVideoReducer);
-  
-  const watchLaterList= useSelector(state=>state.watchLaterReducer)
+
+  const watchLaterList = useSelector((state) => state.watchLaterReducer);
 
   useEffect(() => {
     likedVideoList?.data
@@ -80,10 +80,12 @@ function LikeWatchLaterSaveBtns({ vv, vid }) {
             Like: lk - 1,
           })
         );
-        dispatch(deletelikedVideo({
-          videoId: vid,
-          Viewer: CurrentUser?.result._id,
-        }))
+        dispatch(
+          deletelikedVideo({
+            videoId: vid,
+            Viewer: CurrentUser?.result._id,
+          })
+        );
       } else {
         setLikeBtn(true);
         dispatch(
@@ -118,10 +120,12 @@ function LikeWatchLaterSaveBtns({ vv, vid }) {
               Like: lk - 1,
             })
           );
-          dispatch(deletelikedVideo({
-            videoId: vid,
-            Viewer: CurrentUser?.result._id,
-          }))
+          dispatch(
+            deletelikedVideo({
+              videoId: vid,
+              Viewer: CurrentUser?.result._id,
+            })
+          );
         }
         setLikeBtn(false);
       }

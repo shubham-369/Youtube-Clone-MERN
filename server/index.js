@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import dontenv from "dotenv";
+import dotenv from "dotenv";
 import cors from "cors";
 import bodyParser from "body-parser";
 import userRoutes from "./routes/user.js";
@@ -9,7 +9,7 @@ import commentsRoutes from "./routes/comments.js";
 
 import path from "path";
 
-dontenv.config();
+dotenv.config();
 
 const app = express();
 app.use(cors());
@@ -30,6 +30,8 @@ const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`Server Running on the PORT ${PORT}`);
 });
+
+mongoose.set('strictQuery', false);
 
 const DB_URL = process.env.CONNECTION_URL;
 mongoose

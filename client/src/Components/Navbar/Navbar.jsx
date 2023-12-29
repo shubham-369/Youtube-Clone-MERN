@@ -20,8 +20,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
   useEffect(() => {
     function start() {
       gapi.client.init({
-        clientId:
-          "565866976001-kogc3n05n90ug8i92r0t40tl8co0fhse.apps.googleusercontent.com",
+        clientId: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         scope: "email",
       });
     }
@@ -82,9 +81,7 @@ function Navbar({ toggleDrawer, setEditCreateChanelBtn }) {
           ) : (
             <>
               <GoogleLogin
-                clientId={
-                  "565866976001-kogc3n05n90ug8i92r0t40tl8co0fhse.apps.googleusercontent.com"
-                }
+                clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                 onSuccess={onSuccess}
                 onFailure={onFailure}
                 render={(renderProps) => (

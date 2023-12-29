@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { uploadVideo } from "../../actions/video";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
 import "./VideoUpload.css";
+
 function VideoUpload({ setVidUploadPage }) {
+  
   const CurrentUser = useSelector((state) => state.currentUserReducer);
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
@@ -39,7 +41,6 @@ function VideoUpload({ setVidUploadPage }) {
       fileData.append("title", title);
       fileData.append("chanel", CurrentUser?.result._id);
       fileData.append("Uploder", CurrentUser?.result.name);
-    //   console.log(videoFile)
       dispatch(
         uploadVideo({
           fileData: fileData,

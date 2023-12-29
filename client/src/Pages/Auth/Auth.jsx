@@ -51,9 +51,7 @@ function Auth({ User, setAuthBtn, setEditCreateChanelBtn }) {
 
           <div>
             <GoogleLogout
-              clientId={
-                "565866976001-kogc3n05n90ug8i92r0t40tl8co0fhse.apps.googleusercontent.com"
-              }
+              clientId={ process.env.REACT_APP_GOOGLE_CLIENT_ID }
               onLogoutSuccess={onLogOutSuccess}
               render={(renderProps) => (
                 <div onClick={renderProps.onClick} className="btn_Auth">
