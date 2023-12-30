@@ -6,13 +6,15 @@ import bodyParser from "body-parser";
 import userRoutes from "./routes/user.js";
 import videoRoutes from "./routes/video.js";
 import commentsRoutes from "./routes/comments.js";
-
 import path from "path";
-
+const clientLink = process.env.CLIENT_LINK;
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: clientLink,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'PUT']
+}));
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use("/uploads", express.static(path.join("uploads")));
