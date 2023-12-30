@@ -4,24 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { postComment } from "../../actions/comments";
 import "./comments.css";
 import DisplayComments from "./DisplayComments";
+
 function Comments({ videoId }) {
   const [commentText, setCommentText] = useState("");
 
   const CurrentUser = useSelector((state) => state?.currentUserReducer);
   const commentsList = useSelector((s) => s.commentReducer);
-
-  // const commetsList = [
-  //   {
-  //     _id:"1",
-  //     commentBody: "hello",
-  //     userCommented: "abc",
-  //   },
-  //   {
-  //     _id:"2",
-  //     commentBody: "hiii",
-  //     userCommented: "xyz",
-  //   },
-  // ];
 
   const dispatch = useDispatch();
   const handleOnSubmit = (e) => {
@@ -40,8 +28,8 @@ function Comments({ videoId }) {
         );
         setCommentText("");
       }
-    }else{
-      alert("Plz login to post your commnet !")
+    } else {
+      alert("Plz login to post your commnet !");
     }
   };
   return (

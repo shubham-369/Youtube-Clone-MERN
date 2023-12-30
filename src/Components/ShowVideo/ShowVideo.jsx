@@ -9,8 +9,7 @@ function ShowVideo({ vid }) {
     <>
       <Link to={`/videopage/${vid?._id}`}>
         <video
-          src={`http://localhost:3600/${vid.filePath}`}
-          // src={`https://youtubeclone5031.herokuapp.com/${vid.filePath}`}
+          src={`${process.env.REACT_APP_SERVER_LINK}${vid.filePath}`}
           className="video_ShowVideo"
         />
       </Link>

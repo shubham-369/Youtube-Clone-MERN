@@ -43,8 +43,7 @@ function VideoPage() {
         <div className="container2_videoPage">
           <div className="video_display_screen_videoPage">
             <video
-              // src={`https://youtubeclone5031.herokuapp.com/${vv?.filePath}`}
-              src={`${process.env.REACT_APP_NETLIFY_LINK}${vv?.filePath}`}
+              src={`${process.env.REACT_APP_SERVER_LINK}${vv?.filePath}`}
               className={"video_ShowVideo_videoPage"}
               controls
               autoPlay

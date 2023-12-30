@@ -2,8 +2,8 @@ import moment from "moment";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteComment, editComment } from "../../actions/comments";
-
 import "./comments.css";
+
 function DisplayComments({
   cId,
   commentBody,
@@ -38,9 +38,9 @@ function DisplayComments({
     }
     setEdit(false);
   };
-  const handleDel=(id)=>{
-    dispatch(deleteComment(id))
-  }
+  const handleDel = (id) => {
+    dispatch(deleteComment(id));
+  };
   return (
     <>
       {Edit ? (
@@ -73,7 +73,7 @@ function DisplayComments({
       {CurrentUser?.result._id === userId && (
         <p className="EditDel_DisplayCommendt">
           <i onClick={() => handleEdit(cId, commentBody)}>Edit</i>
-          <i onClick={()=> handleDel(cId)} >Delete</i>
+          <i onClick={() => handleDel(cId)}>Delete</i>
         </p>
       )}
     </>

@@ -12,4 +12,4 @@ const commentReducer = (state = { data: null }, action) => {
   }
 };
 
-export default commentReducer
+export default commentReducer;
